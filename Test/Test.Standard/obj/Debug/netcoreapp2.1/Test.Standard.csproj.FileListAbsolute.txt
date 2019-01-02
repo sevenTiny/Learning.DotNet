@@ -1,0 +1,17 @@
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\Test.Standard.deps.json
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\Test.Standard.runtimeconfig.json
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\Test.Standard.runtimeconfig.dev.json
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\Test.Standard.dll
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\Test.Standard.pdb
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\obj\Debug\netcoreapp2.1\Test.Standard.csprojAssemblyReference.cache
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\obj\Debug\netcoreapp2.1\Test.Standard.csproj.CoreCompileInputs.cache
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\obj\Debug\netcoreapp2.1\Test.Standard.AssemblyInfoInputs.cache
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\obj\Debug\netcoreapp2.1\Test.Standard.AssemblyInfo.cs
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\obj\Debug\netcoreapp2.1\Test.Standard.dll
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\obj\Debug\netcoreapp2.1\Test.Standard.pdb
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\StandardCL.dll
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\bin\Debug\netcoreapp2.1\StandardCL.pdb
+E:\GitHub\LearningFragments\DotNet\Test\Test.Standard\obj\Debug\netcoreapp2.1\Test.Standard.csproj.CopyComplete

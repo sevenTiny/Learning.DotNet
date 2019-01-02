@@ -1,0 +1,9 @@
+E:\GitHub\LearningFragments\DotNet\StandardCL\bin\Debug\netstandard2.0\StandardCL.deps.json
+E:\GitHub\LearningFragments\DotNet\StandardCL\bin\Debug\netstandard2.0\StandardCL.dll
+E:\GitHub\LearningFragments\DotNet\StandardCL\bin\Debug\netstandard2.0\StandardCL.pdb
+E:\GitHub\LearningFragments\DotNet\StandardCL\obj\Debug\netstandard2.0\StandardCL.csprojAssemblyReference.cache
+E:\GitHub\LearningFragments\DotNet\StandardCL\obj\Debug\netstandard2.0\StandardCL.csproj.CoreCompileInputs.cache
+E:\GitHub\LearningFragments\DotNet\StandardCL\obj\Debug\netstandard2.0\StandardCL.AssemblyInfoInputs.cache
+E:\GitHub\LearningFragments\DotNet\StandardCL\obj\Debug\netstandard2.0\StandardCL.AssemblyInfo.cs
+E:\GitHub\LearningFragments\DotNet\StandardCL\obj\Debug\netstandard2.0\StandardCL.dll
+E:\GitHub\LearningFragments\DotNet\StandardCL\obj\Debug\netstandard2.0\StandardCL.pdb

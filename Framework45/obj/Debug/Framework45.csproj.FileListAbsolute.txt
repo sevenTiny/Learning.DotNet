@@ -1,0 +1,6 @@
+E:\GitHub\LearningFragments\DotNet\Framework45\bin\Debug\Framework45.dll
+E:\GitHub\LearningFragments\DotNet\Framework45\bin\Debug\Framework45.pdb
+E:\GitHub\LearningFragments\DotNet\Framework45\obj\Debug\Framework45.csproj.CoreCompileInputs.cache
+E:\GitHub\LearningFragments\DotNet\Framework45\obj\Debug\Framework45.dll
+E:\GitHub\LearningFragments\DotNet\Framework45\obj\Debug\Framework45.pdb
+E:\GitHub\LearningFragments\DotNet\Framework45\obj\Debug\Framework45.csprojAssemblyReference.cache
