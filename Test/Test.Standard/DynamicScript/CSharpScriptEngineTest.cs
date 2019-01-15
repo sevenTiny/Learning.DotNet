@@ -11,7 +11,7 @@ namespace Test.Standard.DynamicScript
     public class CSharpScriptEngineTest
     {
         [Fact]
-        [Trait("desc", "调用脚本方法")]
+        [Trait("desc", "调用动态创建的脚本方法")]
         public void CallScriptFromText()
         {
             string code1 = @"
@@ -24,13 +24,34 @@ namespace Test.Standard.DynamicScript
                 }
             }";
 
-            string code2 = ("new ScriptedClass().HelloWorld");
+            var script = CSharpScript.RunAsync(code1).Result;
 
-            var codes = new string[] { code1, code2 };
+            var result = script.ContinueWithAsync<string>("new ScriptedClass().HelloWorld").Result;
 
-            var result = CSharpScriptEngine.Run(codes);
+            Assert.Equal("Hello Roslyn!", result.ReturnValue);
+        }
 
-            Assert.Equal("Hello Roslyn!", result.ToString());
+        [Trait("desc", "调用动态创建的带参数的脚本方法")]
+        [Theory]
+        [InlineData("123")]
+        public void CallScriptFromTextWithArguments(string name)
+        {
+            string code1 = @"
+            public class ScriptedClass
+            {
+                public string GetString(string name)
+                {
+                    return name;
+                }
+            }
+            return new ScriptedClass().GetString(arg1);      
+            ";
+
+            var script = CSharpScript.RunAsync(code1,globals:new Arg { arg1 = name }, globalsType: typeof(Arg)).Result;
+
+            var result = script.ReturnValue;
+
+            Assert.Equal(name, result);
         }
 
         [Fact]
@@ -57,7 +78,7 @@ namespace Test.Standard.DynamicScript
 
             script.Compile();
 
-            var result = script.RunAsync(new TestClass { arg1 = x}).Result.ReturnValue;
+            var result = script.RunAsync(new TestClass { arg1 = x }).Result.ReturnValue;
 
             Assert.Equal(x, result.ToString());
         }
@@ -76,5 +97,10 @@ namespace Test.Standard.DynamicScript
         {
             return a;
         }
+    }
+
+    public class Arg
+    {
+        public string arg1 { get; set; }
     }
 }
