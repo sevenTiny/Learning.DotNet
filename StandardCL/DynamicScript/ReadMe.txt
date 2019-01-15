@@ -1,6 +1,9 @@
 ﻿Roslyn 官方说明Scripting API Samples：https://github.com/dotnet/roslyn/wiki/Scripting-API-Samples
 
-需引用Microsoft.CodeAnalysis.CSharp和Microsoft.CodeAnalysis.Scripting这两个Nuget。
+需引用Nuget：
+
+Microsoft.CodeAnalysis.CSharp
+Microsoft.CodeAnalysis.Scripting
 
 Install the Scripting API NuGet Package:
 
