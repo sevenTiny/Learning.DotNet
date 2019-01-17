@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using Newtonsoft.Json;
 
 namespace Test.Standard.RoslynScript
 {
@@ -31,6 +32,36 @@ namespace Test.Standard.RoslynScript
             Assert.Equal("Hello Roslyn!", result.ReturnValue);
         }
 
+        [Fact]
+        [Trait("desc", "命名空间的使用")]
+        public void CallScriptFromTextWithUsing()
+        {
+            //#r ""nuget: Newtonsoft.Json, 12.0.1""
+            string code1 = @"
+
+            using System.Collections.Generic;
+            using Newtonsoft.Json;
+
+            public class ScriptedClass
+            {
+                public static string GetIntList()
+                {
+                    var list = new List<int>();
+                    for (int i = 0; i < 10; i++)
+                    {
+                        list.Add(i);
+                    }
+                    return JsonConvert.SerializeObject(list);
+                }
+            }";
+
+            var script = CSharpScript.RunAsync(code1,
+                ScriptOptions.Default.AddReferences("Newtonsoft.Json")//引用dll
+                ).Result;
+
+            var result = script.ContinueWithAsync<string>("ScriptedClass.GetIntList()").Result;
+        }
+
         [Trait("desc", "调用动态创建的带参数的脚本方法")]
         [Theory]
         [InlineData("123")]
@@ -47,7 +78,7 @@ namespace Test.Standard.RoslynScript
             return new ScriptedClass().GetString(arg1);      
             ";
 
-            var script = CSharpScript.RunAsync(code1,globals:new Arg { arg1 = name }, globalsType: typeof(Arg)).Result;
+            var script = CSharpScript.RunAsync(code1, globals: new Arg { arg1 = name }, globalsType: typeof(Arg)).Result;
 
             var result = script.ReturnValue;
 
