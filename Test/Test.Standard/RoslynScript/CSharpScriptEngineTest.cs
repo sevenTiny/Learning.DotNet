@@ -1,12 +1,12 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
-using StandardCL.DynamicScript;
+using StandardCL.RoslynScript;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 
-namespace Test.Standard.DynamicScript
+namespace Test.Standard.RoslynScript
 {
     public class CSharpScriptEngineTest
     {

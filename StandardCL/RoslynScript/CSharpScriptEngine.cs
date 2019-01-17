@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StandardCL.DynamicScript
+namespace StandardCL.RoslynScript
 {
     /// <summary>
     /// Roslyn脚本引擎
