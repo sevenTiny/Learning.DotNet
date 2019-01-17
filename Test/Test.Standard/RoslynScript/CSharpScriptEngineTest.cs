@@ -62,6 +62,39 @@ namespace Test.Standard.RoslynScript
             var result = script.ContinueWithAsync<string>("ScriptedClass.GetIntList()").Result;
         }
 
+        [Fact]
+        [Trait("desc", "命名空间的使用")]
+        public void CallScriptFromTextWithUsingUseCreate()
+        {
+            string code1 = @"
+            using System.Collections.Generic;
+            using Newtonsoft.Json;
+
+            public class ScriptedClass
+            {
+                public static string GetIntList()
+                {
+                    var list = new List<int>();
+                    for (int i = 0; i < 10; i++)
+                    {
+                        list.Add(i);
+                    }
+                    return JsonConvert.SerializeObject(list);
+                }
+            }
+
+            return ScriptedClass.GetIntList();
+            ";
+
+            var script = CSharpScript.Create<string>(code1,
+                ScriptOptions.Default.AddReferences("Newtonsoft.Json")//引用dll
+                );
+
+            script.Compile();
+
+            var result = script.RunAsync().Result.ReturnValue;
+        }
+
         [Trait("desc", "调用动态创建的带参数的脚本方法")]
         [Theory]
         [InlineData("123")]
