@@ -71,6 +71,8 @@ using System;
             {
                 var result = compilation.Emit(ms);
 
+                var resultString = string.Join(",\n", result.Diagnostics);
+
                 if (result.Success)
                 {
                     ms.Seek(0, SeekOrigin.Begin);
