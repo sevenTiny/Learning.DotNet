@@ -1,11 +1,14 @@
-﻿using Microsoft.CodeAnalysis.CSharp.Scripting;
+﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Scripting;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Scripting;
 using StandardCL.RoslynScript;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using Xunit;
-using Newtonsoft.Json;
 
 namespace Test.Standard.RoslynScript
 {
@@ -30,6 +33,49 @@ namespace Test.Standard.RoslynScript
             var result = script.ContinueWithAsync<string>("new ScriptedClass().HelloWorld").Result;
 
             Assert.Equal("Hello Roslyn!", result.ReturnValue);
+        }
+
+        [Fact]
+        [Trait("desc", "检测脚本")]
+        public void Compilation()
+        {
+            string code1 = @"
+using System;
+            public class ScriptedClass
+            {
+                public string HelloWorld { get; set; }
+                public ScriptedClass()dd
+                {
+                    HelloWorld = ""Hello Roslyn!"";
+                }
+            }";
+            var syntaxTree = CSharpSyntaxTree.ParseText(code1);
+
+            // 指定编译选项。
+            var assemblyName = $"GenericGenerator.g";
+            var compilation = CSharpCompilation.Create(assemblyName, new[] { syntaxTree },
+                    options: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary))
+                    .AddReferences(AppDomain.CurrentDomain.GetAssemblies().Select(t =>
+                    {
+                        try
+                        {
+                            return t.Location;
+                        }
+                        catch (Exception)
+                        {
+                            return string.Empty;
+                        }
+                    }).Where(t => !string.IsNullOrEmpty(t)).Select(x => MetadataReference.CreateFromFile(x)));
+
+            using (var ms = new MemoryStream())
+            {
+                var result = compilation.Emit(ms);
+
+                if (result.Success)
+                {
+                    ms.Seek(0, SeekOrigin.Begin);
+                }
+            }
         }
 
         [Fact]
@@ -145,6 +191,42 @@ namespace Test.Standard.RoslynScript
             var result = script.RunAsync(new TestClass { arg1 = x }).Result.ReturnValue;
 
             Assert.Equal(x, result.ToString());
+        }
+
+        [Fact]
+        public void Syntax()
+        {
+            SyntaxTree tree = CSharpSyntaxTree.ParseText(
+@"using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+ 
+namespace TopLevel
+{
+    using Microsoft;
+    using System.ComponentModel;
+ 
+    namespace Child1
+    {
+        using Microsoft.Win32;
+        using System.Runtime.InteropServices;
+ 
+        class Foo { }
+    }
+ eqweq
+    namespace Child2
+    {
+        using System.CodeDom;
+        using Microsoft.CSharp;
+ 
+        class Bar { }
+    }
+}");
+
+            var root = (CompilationUnitSyntax)tree.GetRoot();
         }
     }
 
