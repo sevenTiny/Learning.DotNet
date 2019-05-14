@@ -65,5 +65,8 @@
     <Compile Include="Spring\SpringContext.cs" />
     <Compile Include="Spring\SpringStartUp.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Aop\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

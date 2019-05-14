@@ -1,6 +1,9 @@
 ﻿using SevenTiny.Bantina.Spring;
+using SevenTiny.Bantina.Spring.Aop;
 using SevenTiny.Bantina.Spring.DependencyInjection;
 using SevenTiny.Bantina.Spring.Middleware;
+using System;
+using System.Reflection;
 
 namespace Test.SevenTiny.Bantina.Spring
 {
@@ -13,8 +16,9 @@ namespace Test.SevenTiny.Bantina.Spring
 
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<BusinessService>();
-            services.AddSingleton<IBusinessService, BusinessService>();
+            services.AddSingleton(Assembly.Load("Test.Framework"));
+            services.AddSingletonWithAop<IAService, AService>();
+            services.AddSingletonWithAop<ICService, CService>();
         }
 
         public override void Start()
