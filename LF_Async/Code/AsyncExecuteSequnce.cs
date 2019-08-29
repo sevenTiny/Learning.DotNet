@@ -14,6 +14,12 @@ namespace LF_Async.Code
     public class AsyncExecuteSequnce
     {
         #region 不带返回值
+
+        /*
+            不带返回值的场景真实异步回调，可以显著加快系统速度
+            Async 是对子方法整体的异步，而不是对某段代码逻辑的异步
+        */
+
         public void ExecuteNoReturn()
         {
             Trace.WriteLine(1);
@@ -33,7 +39,8 @@ namespace LF_Async.Code
                 这里只要遇到了await，就会立即结束该方法，而不执行后续的逻辑
                 编译器将后面的逻辑包装成回调函数在await方法执行完毕以后继续执行回调函数（也就是await后面的逻辑）
              */
-            await Task.Run(() => {
+            await Task.Run(() =>
+            {
                 Thread.Sleep(2000);
                 Trace.WriteLine(4);
             });
@@ -43,6 +50,11 @@ namespace LF_Async.Code
         #endregion
 
         #region 带返回值
+
+        /*
+            采用Result方式获取返回值的场景，会阻塞异步方法，和同步调用没有优势，还会增加线程开销
+        */
+
         public void ExecuteReturn()
         {
             Trace.WriteLine(1);
@@ -64,7 +76,8 @@ namespace LF_Async.Code
             /*
                 该方法由于在外面使用Result等待结果，因此同步执行了方法
              */
-            await Task.Run(() => {
+            await Task.Run(() =>
+            {
                 Thread.Sleep(2000);
                 Trace.WriteLine(3);
             });
