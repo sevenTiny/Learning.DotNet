@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LF_Roslyn", "LF_Roslyn\LF_R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LF_Reflection", "LF_Reflection\LF_Reflection.csproj", "{2EBFD4F6-69DE-4F70-AC61-A8706BE1044D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LF_Spring", "LF_Spring\LF_Spring.csproj", "{E2B20A88-A7D1-48F8-8EB8-D703A5137AD2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{2EBFD4F6-69DE-4F70-AC61-A8706BE1044D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EBFD4F6-69DE-4F70-AC61-A8706BE1044D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EBFD4F6-69DE-4F70-AC61-A8706BE1044D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E2B20A88-A7D1-48F8-8EB8-D703A5137AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E2B20A88-A7D1-48F8-8EB8-D703A5137AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E2B20A88-A7D1-48F8-8EB8-D703A5137AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E2B20A88-A7D1-48F8-8EB8-D703A5137AD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
