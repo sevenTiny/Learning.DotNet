@@ -9,7 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LF_Roslyn", "LF_Roslyn\LF_R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LF_Reflection", "LF_Reflection\LF_Reflection.csproj", "{2EBFD4F6-69DE-4F70-AC61-A8706BE1044D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LF_Generic", "LF_Generic\LF_Generic.csproj", "{1EB6C617-D454-47DE-8384-8976E0BE48EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LF_Generic", "LF_Generic\LF_Generic.csproj", "{1EB6C617-D454-47DE-8384-8976E0BE48EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Async", "Async", "{70F91DE9-519E-4A57-A798-B2D33CBA0764}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generic", "Generic", "{709AEDF9-D162-4372-AB7B-AA833B23FC0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reflection", "Reflection", "{751460C0-6864-4A06-B824-D12A1C9F3382}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Roslyn", "Roslyn", "{5D083695-16CE-4B56-A7DE-522CC9E192E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +44,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2A51C14B-B3A6-45DF-AD87-8422401FAA6D} = {70F91DE9-519E-4A57-A798-B2D33CBA0764}
+		{0A7C25DE-C70E-4ADE-9FAE-32F78AFE0C5E} = {5D083695-16CE-4B56-A7DE-522CC9E192E5}
+		{2EBFD4F6-69DE-4F70-AC61-A8706BE1044D} = {751460C0-6864-4A06-B824-D12A1C9F3382}
+		{1EB6C617-D454-47DE-8384-8976E0BE48EF} = {709AEDF9-D162-4372-AB7B-AA833B23FC0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B025590C-8DBE-4221-BCF5-CACEA93F3CFC}
